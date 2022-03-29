@@ -9,10 +9,10 @@ namespace Questão1.Classes
 {
     public class CartaoBandeiraVisa : IPagamentoCartao
     {
-        private string TipoDePagamento { get; set; }
+        private int TipoDePagamento { get; set; }
         private string BandeiraCartao { get; set; }
 
-        public CartaoBandeiraVisa(string TipoDePagamento)
+        public CartaoBandeiraVisa(int TipoDePagamento)
         {
             this.TipoDePagamento = TipoDePagamento;
             this.BandeiraCartao = "Visa";
@@ -25,7 +25,7 @@ namespace Questão1.Classes
 
         public void pagamentoDebito()
         {
-            Console.WriteLine($"Tipo de Pagamento: Debito | Pago com Visa ");
+            Console.WriteLine($"Tipo de Pagamento: Débito | Pago com Visa ");
         }
     }
 }

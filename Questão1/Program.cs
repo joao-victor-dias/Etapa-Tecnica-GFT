@@ -1,51 +1,68 @@
-﻿using Questão1.Classes;
+﻿using Questao1.Classes;
 using System;
 
-namespace Questão1
+namespace Questao1
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Pagamento com cartão\n\n");
-            OpcaoBandeira();
-            OpcaoDePagamento();
+            bool venda = true;
 
-            Console.WriteLine($"{opcaoBandeira}");
-                       
-           /* if (opcaoBandeira == 1)
-            {   
+            do
+            {
+                Console.WriteLine("PAGAMENTO");
+                Console.WriteLine("----------------------------------");
+                Console.WriteLine("Digite o número da opção da Bandeira do cartão");
+                Console.WriteLine("1 - Visa \n2 - Master");
+                int opcaoBandeira = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Digite a numeração da opção de pagamento");
+                Console.WriteLine("1 - Débito \n2- Crédito");
+                int opcaoPagamento = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("");
+
+                if (opcaoBandeira == 2 && opcaoPagamento == 1)
+                {
+                    CartaoBandeiraMaster master = new CartaoBandeiraMaster("Débito");
+                    master.pagamentoDebito();
+                }
+
+                if (opcaoBandeira == 2 && opcaoPagamento == 2)
+                {
+                    CartaoBandeiraMaster master = new CartaoBandeiraMaster("Crédito");
+                    master.pagamentoCredito();
+                }
+
+                if (opcaoBandeira == 1 && opcaoPagamento == 1)
+                {
+                    CartaoBandeiraVisa visa = new CartaoBandeiraVisa("Debito");
+                    visa.pagamentoDebito();
+                }
+
+                if (opcaoBandeira == 1 && opcaoPagamento == 2)
+                {
+                    CartaoBandeiraVisa visa = new CartaoBandeiraVisa("Crédito");
+                    visa.pagamentoCredito();
+                }
+
+                Console.WriteLine("");
+                Console.WriteLine("Realizar outra venda?");
+                Console.WriteLine("1 - Sim\n2 - Não");
+                int outraVenda = int.Parse(Console.ReadLine());
                 
-                var cartaoVisa = new CartaoBandeiraVisa();
-            }
-            if (opcaoBandeira == 2)
-            {
-                var cartaoMaster = new CartaoBandeiraMaster();
-            }
-            else
-            {
-                Console.WriteLine("Opção inválida");
-            }*/
-                       
+                switch (outraVenda)
+                {
+                    case 1:
+                        venda = true;
+                        break;
+                    case 2:
+                        venda = false;
+                        break;
+                }
 
-
-
-        }
-
-        public static void OpcaoBandeira()
-        {
-            Console.WriteLine("Digite o número da opção da Bandeira do cartão");
-            Console.WriteLine("1 - Visa \n2 - Master");
-            int opcaoBandeira = int.Parse(Console.ReadLine());
-        }
-        
-        public static void OpcaoDePagamento()
-        {
-            Console.WriteLine("Digite a numeração da opção de pagamento");
-            Console.WriteLine("1 - Débito \n2- Crédito");
-            int opcaoPagamento = int.Parse(Console.ReadLine());
-        }
-
+            } while (venda == true);                
+        }      
     }
 }

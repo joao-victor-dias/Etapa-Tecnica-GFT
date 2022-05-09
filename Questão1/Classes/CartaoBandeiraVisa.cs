@@ -1,18 +1,18 @@
-﻿using Questão1.Interfaces;
+﻿using Questao1.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Questão1.Classes
+namespace Questao1.Classes
 {
     public class CartaoBandeiraVisa : IPagamentoCartao
     {
-        private int TipoDePagamento { get; set; }
+        private string TipoDePagamento { get; set; }
         private string BandeiraCartao { get; set; }
 
-        public CartaoBandeiraVisa(int TipoDePagamento)
+        public CartaoBandeiraVisa(string TipoDePagamento)
         {
             this.TipoDePagamento = TipoDePagamento;
             this.BandeiraCartao = "Visa";
@@ -20,12 +20,12 @@ namespace Questão1.Classes
 
         public void pagamentoCredito()
         {
-            Console.WriteLine($"Tipo de Pagamento: Crédito | Pago com Visa ");
+            Console.WriteLine($"Tipo de Pagamento: {TipoDePagamento} | Pago com {BandeiraCartao} ");
         }
 
         public void pagamentoDebito()
         {
-            Console.WriteLine($"Tipo de Pagamento: Débito | Pago com Visa ");
+            Console.WriteLine($"Tipo de Pagamento: {TipoDePagamento} | Pago com {BandeiraCartao} ");
         }
     }
 }

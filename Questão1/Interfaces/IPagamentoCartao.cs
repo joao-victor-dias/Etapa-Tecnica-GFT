@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Questão1.Interfaces
+namespace Questao1.Interfaces
 {
     public interface IPagamentoCartao
     {

@@ -1,11 +1,11 @@
-﻿using Questão1.Interfaces;
+﻿using Questao1.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Questão1.Classes
+namespace Questao1.Classes
 {
     public class CartaoBandeiraMaster : IPagamentoCartao
     {
@@ -20,12 +20,12 @@ namespace Questão1.Classes
         
         public void pagamentoCredito()
         {
-            Console.WriteLine($"Tipo de Pagamento: Crédito | Pago com Master ");
+            Console.WriteLine($"Tipo de Pagamento: {TipoDePagamento} | Pago com {BandeiraCartao}");
         }
 
         public void pagamentoDebito()
         {
-            Console.WriteLine($"Tipo de Pagamento: Debito | Pago com Master ");
+            Console.WriteLine($"Tipo de Pagamento: {TipoDePagamento} | Pago com {BandeiraCartao} ");
         }
     }
 }

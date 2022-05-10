@@ -16,7 +16,7 @@ namespace Questao3
 
         public Produto(string Descricao, double ValorReal, string Operacao, double Percentual)
         {
-            this.Descricao = Descricao;
+            this.Descricao = Descricao.ToLower();
             this.ValorReal = ValorReal; 
             this.Operacao = Operacao;
             this.Percentual = Percentual;
@@ -35,8 +35,8 @@ namespace Questao3
             {
                 valorFinal = ValorReal + (ValorReal * (Percentual / 100));
             }
-
-            return valorFinal;
+            ValorFinal = valorFinal;
+            return ValorFinal;
         }
 
 

@@ -8,17 +8,36 @@ namespace Questao3
         {
             
             Console.WriteLine("Aplicação de desconto ou acréscimo");
+            Console.WriteLine("");
 
-            var produto1 = new Produto("Tapete", 22.5, "acrescimo", 10);
-            var valorFinal1 = produto1.OperacaoAExecutar(produto1.ValorReal, produto1.Percentual, produto1.Operacao);
-            Console.WriteLine(valorFinal1);
+            Console.Write("Digite a descrição do produto: ");
+            var descricao = Console.ReadLine();
 
-            var produto2 = new Produto("Panela", 12.5, "desconto", 10);
-            var valorFinal2 = produto2.OperacaoAExecutar(produto2.ValorReal, produto2.Percentual, produto2.Operacao);
-            Console.WriteLine(valorFinal2);
+            Console.Write("Digite o valor real do produto: ");
+            var valorReal = double.Parse(Console.ReadLine());
 
+            Console.Write("1 - Desconto\n2- Acréscimo\nDigite o número da operação que deseja fazer: ");
+            var opcao = int.Parse(Console.ReadLine());
 
+            string operacao = "";
 
+            switch(opcao)
+            {
+                case 1:
+                    operacao = "desconto";
+                    break;
+                case 2:
+                    operacao = "acrescimo";
+                    break;
+            }
+
+            Console.Write("Digite o percentual (%): ");
+            var percentual = double.Parse(Console.ReadLine());
+
+            Produto produto = new Produto(descricao,valorReal, operacao, percentual);
+
+            var valorFinal = produto.OperacaoAExecutar(valorReal, percentual, operacao);
+            Console.WriteLine($"O valor final do produto {descricao} é: R${valorFinal}");
 
 
         }

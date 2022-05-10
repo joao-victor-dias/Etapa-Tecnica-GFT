@@ -17,7 +17,7 @@ namespace Questao1
                 Console.WriteLine("1 - Visa \n2 - Master");
                 int opcaoBandeira = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Digite a numeração da opção de pagamento");
+                Console.WriteLine("Digite o número da opção de pagamento");
                 Console.WriteLine("1 - Débito \n2- Crédito");
                 int opcaoPagamento = int.Parse(Console.ReadLine());
 

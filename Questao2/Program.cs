@@ -6,22 +6,32 @@ namespace Questao2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Insira o tamanho do vetor");
-            int tamanhoVetor = int.Parse(Console.ReadLine());
-            int[] vetor = new int[tamanhoVetor];
+            Console.Write("Digite o tamanho do array: ");
+            var tamanhoArray = int.Parse(Console.ReadLine());
+
+            int[] vetor = new int[tamanhoArray];
 
             for (int i = 0; i < vetor.Length; i++)
             {
-                Console.WriteLine("Insira o valor");
-                int valor = int.Parse(Console.ReadLine());
-                foreach (int v in vetor)
-                    if (v != valor || v == null)
-                        vetor[i] = valor;
-                Console.WriteLine("Valor Invalido");
+                bool existe = false;
+                var valor = 0;
+
+                do
+                {
+                    Console.Write("Digite um valor: ");
+                    valor = int.Parse(Console.ReadLine());
+
+                    existe = Array.Exists(vetor, x => x == valor);
+                    if (existe)
+                        Console.WriteLine("Valor existente no vetor!");
+                } while (existe);
+
+                vetor[i] = valor;
             }
 
-            foreach (int i in vetor)
-                Console.Write($"Vetor:{i} ");
+            Array.Sort(vetor);
+            foreach(var v in vetor)
+                Console.WriteLine($"{v} ");            
         }
     }
 }
